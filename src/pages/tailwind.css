@@ -1,0 +1,196 @@
+/* src/tailwind.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.card-container {
+    perspective: 1000px;
+  }
+  
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .card.is-flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .card-face.back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    color: #333;
+  }
+.color-empty { background-color: #eee; }
+.color-scale-1 { background-color: #d6e685; }
+.color-scale-2 { background-color: #8cc665; }
+.color-scale-3 { background-color: #44a340; }
+.color-scale-4 { background-color: #1e6823; }
+
+.chat-interface {
+  background-color: #f9f9f9; /* Light grey background */
+  padding: 20px;
+  border-top: 2px solid #ccc;
+}
+
+.chat-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-message {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.user-message, .bot-message {
+  padding: 10px 20px;
+  border-radius: 20px;
+  max-width: 67%; /* Adjusts width */
+}
+
+.user-message {
+  background-color: #944ef6; /* User message color */
+  color: white;
+  margin-left: 33%; /* Starts at 1/4th width */
+}
+
+.bot-message {
+  background-color: #e1e1e1; /* Bot message color */
+  color: black;
+  margin-right: 25%; /* Ends at 3/4th width */
+}
+
+.message-footer {
+  margin-top: 8px;
+  font-size: 10px;
+  text-align: right;
+}
+
+/* In App.css or a separate CSS module */
+.search-bar {
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.post {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.post-content h3 {
+  margin: 0;
+  color: #333;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+body {
+  background-color: #f7fafc; /* Light grey background */
+}
+.shadow-top-lg {
+  box-shadow: 
+    0 -4px 6px -1px rgba(0, 0, 0, 0.1), /* Top shadow */
+    0 -2px 4px -1px rgba(0, 0, 0, 0.06), /* More subtle top shadow */
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), /* Bottom shadow */
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* More subtle bottom shadow */
+}
+
+@keyframes spinAndScale {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    stroke: #645394;
+  }
+  50% {
+    stroke: #a267ac;
+  }
+  100% {
+    stroke: #645394;
+  }
+}
+
+.loader {
+  animation: spinAndScale 2s linear infinite, colorChange 4s ease-in-out infinite;
+}
+
+.clip-home {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%, 10% 50%, 20% 0%);
+}
+
+
+.toast-progress-bar {
+  @apply bg-button; /* Using Tailwind's utility class for background color */
+}
+
+.btn {
+  @apply bg-button text-white font-medium px-4 py-2 rounded-lg hover:bg-button-hover;
+}
+
+.border-glow {
+  box-shadow: 0 0 15px 5px rgba(72, 6, 172, 0.768);
+}
+
+/* Bouncing animation for the check icon */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+/* Pulsing animation for the congratulatory message */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s infinite;
+}
